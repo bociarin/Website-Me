@@ -1,0 +1,122 @@
+/* Reset margin dan padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bubblegum Sans', sans-serif; /* Menggunakan font Bubblegum Sans */
+    background: linear-gradient(to right, #f8d7db, #f5c7c0); /* Background lebih lembut */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.container {
+    background-color: #fff;
+    width: 80%;
+    max-width: 700px;
+    height: 80vh; /* Sesuaikan dengan ukuran layar */
+    border-radius: 20px; /* Sudut lebih bulat */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-family: 'Bubblegum Sans', sans-serif; /* Menggunakan font yang sama pada h1 */
+    font-size: 3rem;
+    color: #7f5283;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px rgba(255, 165, 0, 0.7);
+}
+
+p {
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Styling untuk album */
+.album {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.album img {
+    display: none;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling tombol navigasi */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-next, .btn-back {
+    margin: 0 15px;
+    padding: 15px 30px;
+    background-color: #7f5283;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-next:hover, .btn-back:hover {
+    background-color: #5e3c7e;
+    transform: scale(1.05);
+}
+
+/* Responsif untuk tampilan kecil */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .album {
+        flex-direction: column;
+    }
+
+    .btn-next, .btn-back {
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        max-width: 500px;
+    }
+}

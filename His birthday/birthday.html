@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Menulis Kata-Kata</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Catatan Kecil Untukmu</h1>
+        
+        <!-- Konten pertama -->
+        <div class="content" id="content1">
+            <p>Hi sayang! Selamat ulang tahun semestaku, semoga di umur yang bertambah ini, Apii bisa menjadi pribadi yang lebih baik lagi. Semoga Apii bisa mencapai semua impiannya Apii, dan semoga Apii selalu dilindungi oleh Allah SWT. </p>
+        </div>
+
+        <!-- Konten kedua -->
+        <div class="content" id="content2" style="display: none;">
+            <p>Sayang, jangan lupa bahagia setiap hari, ya? Di dunia ini ada banyak orang yang sayang sama Apii, terutama Iyak. Apii udah 18th sekarang, ga kerasa ya sayang? Yang dulunya Apii masih disuapin Mamanya Apii, sekarang Apii udah mau kerja.</p>
+        </div>
+
+        <!-- Konten ketiga -->
+        <div class="content" id="content3" style="display: none;">
+            <p>Walaupun terkadang Apii ngerasa semesta ga adil sama Apii, tapi buktinya Apii kuat hadapin itu semua sampe sekarang. Itu bukti bahwa Allah percaya kalo Apii bisa lewatin semuanya. Iyak bersyukur bgt punya Apii di hidupnya Iyak, sayang.</p>
+        </div>
+
+        <!-- Konten keempat -->
+        <div class="content" id="content4" style="display: none;">
+            <p>Iyak dulu selalu minta sama Allah semoga nanti Iyak bisa dapet cowo yang sayang sama Iyak, tapi Allah baik bgt sayang, Allah kasih Apii buat Iyak, Iyak dapet cowo yang ga cuma sayang sama Iyak tapi juga ganteng, baik, dan Apii selalu berusaha wujudin apa yang Iyak pengen.</p>
+        </div>
+
+        <!-- Konten kelima -->
+        <div class="content" id="content5" style="display: none;">
+            <p>Apii selalu pgn Iyak dapetin apa yang Iyak mau, Iyak bersyukur bgt sayang. Kalo Apii cape, Apii bole ko nangis sayang. Iyak selalu di sini buat Apii, Apii gabole ngerasa sendiri ya? Iyak sayang bgt sama Apii sayang. I love you more than anything.</p>
+        </div>
+
+        <!-- Konten keenam -->
+        <div class="content" id="content6" style="display: none;">
+            <p>Semoga apa yang Apii semogakan bisa tersemogakan yaa sayang? Aamiin. Terus berdo'a dan berusaha yaa sayang, tetaplah jadi pribadi yang baik dan sabar, okey sayang? Jangan pernah ngerasa sendiri, ada Iyak di sini sayang. Apii bisa ceritain semuanya ke Iyak..</p>
+        </div>
+
+        <!-- Konten ketujuh -->
+        <div class="content" id="content7" style="display: none;">
+            <p>Ketika kamu tidak merasa bahagia dengan hidupmu, ketahuilah ada seseorang yang merasa bahagia hanya karena kamu ada.</p>
+        </div>
+
+        <!-- Konten kedelapan -->
+        <div class="content" id="content8" style="display: none;">
+            <p>Sayang, Iyak gamau banyak minta. Tapi Iyak minta Apii sehat dan kuat terus, semoga Apii dimudahkan dan dilancarkan apa yang sekarang lagi Apii kejar, mungkin nanti jalannya akan panjang, cobaan akan banyak, arahnya akan rumit tapi tetep sama Iyak ya? Kita lewatin ini semua sama sama semangat sayang.</p>
+        </div>
+
+        <!-- Konten kesembilan -->
+        <div class="content" id="content9" style="display: none;">
+            <p>Kita usahakan ending yang bahagia itu.</p>
+        </div>
+
+        <!-- Tombol Navigasi -->
+        <div class="nav-buttons">
+            <button class="btn-back" id="backBtn" onclick="previousContent()" style="display: none;">Kembali</button>
+            <button class="btn-next" id="nextBtn" onclick="nextContent()">Next</button>
+            <button class="btn-next" id="nextPageBtn" onclick="goToNextPage()" style="display: none;">Selanjutnya</button> <!-- Tombol Selanjutnya -->
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk berpindah ke konten berikutnya
+        function nextContent() {
+            var currentDiv = document.querySelector('.content:not([style*="display: none"])');
+            var nextDiv = currentDiv.nextElementSibling;
+
+            if (nextDiv && nextDiv.classList.contains('content')) {
+                currentDiv.style.display = 'none';
+                nextDiv.style.display = 'block';
+
+                // Menampilkan tombol "Kembali" jika ada konten sebelumnya
+                document.getElementById("backBtn").style.display = 'inline-block';
+            }
+
+            // Jika mencapai konten terakhir, sembunyikan tombol "Next" dan tampilkan tombol "Selanjutnya"
+            if (nextDiv && nextDiv.id === "content9") {  // Pastikan ID sesuai dengan konten terakhir
+                document.getElementById("nextBtn").style.display = 'none'; // Sembunyikan tombol "Next"
+                document.getElementById("nextPageBtn").style.display = 'inline-block'; // Tampilkan tombol "Selanjutnya"
+            }
+        }
+
+        // Fungsi untuk kembali ke konten sebelumnya
+        function previousContent() {
+            var currentDiv = document.querySelector('.content:not([style*="display: none"])');
+            var prevDiv = currentDiv.previousElementSibling;
+
+            if (prevDiv && prevDiv.classList.contains('content')) {
+                currentDiv.style.display = 'none';
+                prevDiv.style.display = 'block';
+
+                // Sembunyikan tombol "Kembali" jika sudah di konten pertama
+                if (!prevDiv.previousElementSibling) {
+                    document.getElementById("backBtn").style.display = 'none';
+                }
+            }
+        }
+
+        // Fungsi untuk mengarahkan ke halaman berikutnya
+        function goToNextPage() {
+            window.location.href = "us.html"; // Ganti dengan URL halaman yang diinginkan
+        }
+    </script>
+</body>
+</html>

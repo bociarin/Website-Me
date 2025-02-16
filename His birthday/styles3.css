@@ -1,0 +1,82 @@
+/* Reset margin dan padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #a7c5eb, #e0aaff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    width: 80%;
+    max-width: 600px;
+    height: 400px; /* Memperpanjang kotak menjadi lebih tinggi */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden; /* Menyembunyikan teks yang melebihi kontainer */
+}
+
+h1 {
+    font-family: 'Pacifico', sans-serif;
+    font-size: 2rem;
+    color: #5e3c7e;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px rgba(255, 165, 0, 0.7);
+}
+
+/* Menulis teks dengan ukuran lebih kecil */
+.content p {
+    font-size: 1.2rem; /* Mengurangi ukuran font */
+    color: #555;
+    margin: 15px 0;
+    line-height: 1.6;
+    text-align: justify;
+    word-wrap: break-word; /* Membungkus kata jika panjang melebihi lebar kontainer */
+    overflow-y: auto; /* Membiarkan teks scroll jika panjang */
+    height: 100%; /* Menggunakan seluruh tinggi kontainer */
+}
+
+/* Styling untuk tombol next dan back */
+.nav-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-next, .btn-back {
+    margin: 0 10px;
+    padding: 12px 25px;
+    background-color: #5e3c7e;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-next:hover, .btn-back:hover {
+    background-color: #4a2e5a;
+}
+
+
+
+.container:hover {
+    transform: translateY(-5px);
+}

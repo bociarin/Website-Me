@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Foto Estetik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet"> <!-- Menambahkan font Bubblegum Sans -->
+    <link rel="stylesheet" href="styles4.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>BONUS FOTO NIH</h1>
+            <p>FOTO TERAKHIR SPESIAL BUAT APII.</p>
+        </div>
+
+        <div class="album">
+            <img src="fotokita.jpg" alt="Foto 1">
+            <img src="ft2.jpeg" alt="Foto 2">
+            <img src="our.jpg" alt="Foto 3">
+            <img src="kita.jpg" alt="Foto 4">
+            <img src="tidur.jpg" alt="Foto 5">
+            <img src="gweh.jpg" alt="Foto 6">
+            <!-- Tambahkan lebih banyak foto jika diperlukan -->
+        </div>
+
+        <div class="nav-buttons">
+            <button class="btn-back" id="backBtn" onclick="previousImage()" style="display: none;">Kembali</button>
+            <button class="btn-next" id="nextBtn" onclick="nextImage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.album img');
+        let currentImageIndex = 0;
+
+        // Menampilkan gambar pertama
+        images[currentImageIndex].style.display = 'block';
+
+        // Fungsi untuk berpindah ke gambar berikutnya
+        function nextImage() {
+            images[currentImageIndex].style.display = 'none';
+
+            currentImageIndex++;
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0; // Loop kembali ke gambar pertama
+            }
+
+            images[currentImageIndex].style.display = 'block';
+
+            // Menampilkan tombol kembali jika bukan gambar pertama
+            document.getElementById("backBtn").style.display = 'inline-block';
+        }
+
+        // Fungsi untuk kembali ke gambar sebelumnya
+        function previousImage() {
+            images[currentImageIndex].style.display = 'none';
+
+            currentImageIndex--;
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1; // Loop kembali ke gambar terakhir
+            }
+
+            images[currentImageIndex].style.display = 'block';
+
+            // Sembunyikan tombol kembali jika sudah di gambar pertama
+            if (currentImageIndex === 0) {
+                document.getElementById("backBtn").style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
